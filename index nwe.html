@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ƒ Α Н Я Ι | eF Ge Kemarin Sore</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .gallery-item img {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item.loaded img {
+      opacity: 1;
+    }
+
+    .gallery-item .gallery-overlay {
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item.loaded .gallery-overlay {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-gray-900 via-gray-950 to-black text-gray-100 antialiased">
+
+  <!-- ===== Header (Glassmorphism) ===== -->
+  <header class="fixed inset-x-0 top-0 z-50">
+    <div class="mx-auto flex max-w-7xl items-center justify-between rounded-b-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur-xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)]">
+      <a href="#gallery" class="group flex items-center gap-3">
+        <img src="https://i.ibb.co.com/mrCTD0Bk/Logo.png" alt="Logo" class="h-9 w-9 rounded-x0 ring-0 ring-white/20" />
+        <span class="text-lg font-semibold tracking-wide">Ƒ Α Н Я Ι</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden gap-6 md:flex">
+        <a href="#gallery" class="rounded-lg px-3 py-1 text-sm text-white/80 hover:bg-white/10 hover:text-white">Gallery</a>
+        <a href="#testimonials" class="rounded-lg px-3 py-1 text-sm text-white/80 hover:bg-white/10 hover:text-white">Testimoni</a>
+        <a href="#pricing" class="rounded-lg px-3 py-1 text-sm text-white/80 hover:bg-white/10 hover:text-white">Pricing</a>
+        <a href="#cta" class="rounded-lg px-3 py-1 text-sm text-white/80 hover:bg-white/10 hover:text-white">Booking</a>
+      </nav>
+
+      <!-- Mobile button -->
+      <button id="menuBtn" class="md:hidden rounded-xl border border-white/20 bg-white/10 px-3 py-2 backdrop-blur">
+        <span class="sr-only">Menu</span> ☰
+      </button>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div id="mobileMenu" class="mx-auto mt-2 hidden max-w-7xl px-4 md:hidden">
+      <div class="rounded-2xl border border-white/10 bg-white/10 p-2 backdrop-blur-xl">
+        <a href="#gallery" class="block rounded-lg px-3 py-2 hover:bg-white/10">Gallery</a>
+        <a href="#testimonials" class="block rounded-lg px-3 py-2 hover:bg-white/10">Testimoni</a>
+        <a href="#pricing" class="block rounded-lg px-3 py-2 hover:bg-white/10">Pricing</a>
+        <a href="#cta" class="block rounded-lg px-3 py-2 hover:bg-white/10">Booking</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Spacer agar konten tidak tertutup header -->
+  <div class="h-20"></div>
+
+  <!-- ===== Section 1: Gallery (Hero + Grid) ===== -->
+  <section id="gallery" class="relative mx-auto max-w-7xl px-4 pt-8">
+    <!-- Hero -->
+    <div class="mx-auto max-w-3xl text-center">
+      <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+        Butuh Jasa Foto <span class="text-white/90">Yang Ramah Kantong? aku solusinya</span>
+      </h1>
+      <p class="mt-4 text-white/70">
+        Cosplay • Portrait • Event . Kami menangkap cerita di balik setiap foto.
+      </p>
+      <div class="mt-6 flex items-center justify-center gap-3">
+        <a href="#pricing" class="rounded-xl border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium backdrop-blur hover:bg-white/15">Lihat Paket</a>
+        <a href="#cta" class="rounded-xl bg-white px-5 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-100">Booking Sekarang</a>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <!-- 12 item contoh (ganti src dengan foto asli nanti) -->
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/vvC09kYL/DSC0291.jpg" alt="Gallery 1" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/MDJwqnym/1748337265632.jpg" alt="Gallery 2" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/VWQSCr8D/1758588689302.jpg" alt="Gallery 3" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/gZFD2DH9/1758593206726.jpg" alt="Gallery 4" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/mV8zqJcB/angel.jpg" alt="Gallery 5" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/0RxCjfh2/image-1.jpg" alt="Gallery 6" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/yFf0Ch9w/image-3.jpg" alt="Gallery 7" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/fG9PNCWF/image-4.jpg" alt="Gallery 8" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/6JNZy7Zx/image-6.jpg" alt="Gallery 9" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/4n3cq3g8/image-7.jpg" alt="Gallery 10" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/93Scmws5/image-16.jpg" alt="Gallery 11" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/SwFCtysd/image-21.jpg" alt="Gallery 12" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/T5kw6Mz/image-28.jpg" alt="Gallery 13" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/Y7sDCkFm/image-31.jpg" alt="Gallery 14" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/mVKrSsQ9/image-32.jpg" alt="Gallery 15" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+            <div class="gallery-item group relative aspect-[3/4] w-full overflow-hidden rounded-xl ring-1 ring-white/10">
+        <div class="gallery-overlay absolute inset-0 flex items-center justify-center bg-white/5">
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+        </div>
+        <img src="https://i.ibb.co.com/Xkv8VdVS/image-39.jpg" alt="Gallery 16" loading="lazy" data-gallery-img class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Section 2: Testimonials ===== -->
+  <section id="testimonials" class="mx-auto mt-16 max-w-7xl px-4">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl font-semibold sm:text-3xl">Apa Kata Klien</h2>
+      <p class="mt-2 text-white/70">Nilai kami adalah kepuasan Anda.</p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Card 1 -->
+      <figure class="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-xl">
+        <div class="flex items-center gap-3">
+          <img src="https://i.ibb.co.com/vbsKDHT/shieru.jpg" alt="Rani & Dimas" class="h-10 w-10 rounded-full ring-1 ring-white/20" />
+          <figcaption>
+            <div class="font-medium">Eru</div>
+            <div class="text-xs text-white/60">@shieru_4400</div>
+          </figcaption>
+        </div>
+        <blockquote class="mt-3 text-white/80">“Cakepp kaaa suer😽”</blockquote>
+      </figure>
+
+      <!-- Card 2 -->
+      <figure class="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-xl">
+        <div class="flex items-center gap-3">
+          <img src="https://i.ibb.co.com/chG1hWz5/kyo.jpg" alt="Kevin H." class="h-10 w-10 rounded-full ring-1 ring-white/20" />
+          <figcaption>
+            <div class="font-medium">Kyo</div>
+            <div class="text-xs text-white/60">kyokumess</div>
+          </figcaption>
+        </div>
+        <blockquote class="mt-3 text-white/80">“KAKK CAKEP BANGETTT HASILNYA THANK YOU SO MUCH FOR THE HARD WORK YAA 🥹🫶🫶”</blockquote>
+      </figure>
+
+      <!-- Card 3 -->
+      <figure class="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-xl">
+        <div class="flex items-center gap-3">
+          <img src="https://i.ibb.co.com/3Y9g55jf/angel.jpg" alt="Nadia P." class="h-10 w-10 rounded-full ring-1 ring-white/20" />
+          <figcaption>
+            <div class="font-medium">Angel</div>
+            <div class="text-xs text-white/60">@rjvangela</div>
+          </figcaption>
+        </div>
+        <blockquote class="mt-3 text-white/80">“AKU SUKA HASILNYAH”</blockquote>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== Section 3: Pricing ===== -->
+  <section id="pricing" class="mx-auto mt-16 max-w-7xl px-4">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl font-semibold sm:text-3xl">Paket Harga</h2>
+      <p class="mt-2 text-white/70">Pilih paket sesuai kebutuhanmu.</p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Basic -->
+      <div class="relative rounded-2xl border border-yellow-300/30 bg-yellow-300/10 p-6 backdrop-blur-xl ring-1 ring-yellow-200/20">
+        <span class="absolute right-4 top-4 rounded-full bg-yellow-400/90 px-3 py-1 text-xs font-bold text-gray-900">POPULAR</span>
+        <h3 class="text-xl font-semibold">Solo</h3>
+        <p class="mt-1 text-sm text-white/70">Cocok untuk portrait & session singkat.</p>
+        <div class="mt-4 text-3xl font-bold">50k</div>
+        <ul class="mt-4 space-y-2 text-sm text-white/80">
+          <li>• 30 menit pemotretan</li>
+          <li>• 7-10 Edited Photos (Hi-Res)</li>
+        </ul>
+        <a href="#cta" class="mt-6 inline-block w-full rounded-xl bg-white px-4 py-2 text-center font-semibold text-gray-900 hover:bg-gray-100">Pilih Solo</a>
+      </div>
+
+      <!-- Signature -->
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+        <h3 class="text-xl font-semibold">Couple</h3>
+        <p class="mt-1 text-sm text-white/70">Untuk mengabadikan bersama.</p>
+        <div class="mt-4 text-3xl font-bold">80k</div>
+        <ul class="mt-4 space-y-2 text-sm text-white/80">
+          <li>• Foto conceptual</li>
+          <li>• 40 menit pemotretan</li>
+          <li>• 10 - 15 Edited Photos (Hi-Res)</li>
+        </ul>
+        <a href="#cta" class="mt-6 inline-block w-full rounded-xl bg-white px-4 py-2 text-center font-semibold text-gray-900 hover:bg-gray-100">Pilih Duo</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+        <h3 class="text-xl font-semibold">Project</h3>
+        <p class="mt-1 text-sm text-white/70">Cocok untuk tema besar.</p>
+        <div class="mt-4 text-3xl font-bold">40k/*people</div>
+        <ul class="mt-4 space-y-2 text-sm text-white/80">
+          <li>• Konsep Bisa diatur sesuai permintaan</li>
+          <li>• Min Project 3 orang</li>
+          <li>• 10 Foto sendiri & 5 Bersama (Hi-Res)</li>
+        </ul>
+        <a href="#cta" class="mt-6 inline-block w-full rounded-xl bg-white px-4 py-2 text-center font-semibold text-gray-900 hover:bg-gray-100">Pilih Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 4: CTA ===== -->
+  <section id="cta" class="mx-auto mt-16 max-w-7xl px-4">
+    <div class="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-white/10 p-8 backdrop-blur-2xl">
+      <div class="grid items-center gap-6 md:grid-cols-2">
+        <div>
+          <h3 class="text-2xl font-semibold sm:text-3xl">Siap Memotret Cosplaymu?</h3>
+          <p class="mt-2 text-white/70">Konsultasi jadwal & kebutuhanmu. Kami bantu dari konsep hingga eksekusi.</p>
+          <ul class="mt-4 space-y-2 text-sm text-white/80">
+            <li>• Free konsultasi konsep</li>
+            <li>• Timeline fleksibel</li>
+            <li>• Revisi warna/retouch wajar</li>
+          </ul>
+        </div>
+        <div class="flex flex-col gap-3 md:items-end">
+          <a href="https://ig.me/_msri.art" target="_blank" class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-base font-semibold text-gray-900 hover:bg-gray-100">Booking via Instagram</a>
+          <a href="mailto:alfachri1945@gmail.com" class="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-6 py-3 text-base font-medium backdrop-blur hover:bg-white/15">Konsultasi via Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="mx-auto mt-16 max-w-7xl px-4 pb-10">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+      <div class="grid gap-6 md:grid-cols-4">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3">
+            <img src="https://i.ibb.co.com/mrCTD0Bk/Logo.png" alt="Logo" class="h-9 w-9 rounded-x0 ring-0 ring-white/20" />
+            <span class="text-lg font-semibold">Ƒ Α Н Я Ι</span>
+          </div>
+          <p class="mt-3 max-w-md text-sm text-white/70">Fotografer berbasis di Bekasi — tersedia untuk pemotretan di event Jabodetabek.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold">Menu</h4>
+          <ul class="mt-3 space-y-2 text-sm text-white/80">
+            <li><a href="#gallery" class="hover:underline">Gallery</a></li>
+            <li><a href="#testimonials" class="hover:underline">Testimoni</a></li>
+            <li><a href="#pricing" class="hover:underline">Pricing</a></li>
+            <li><a href="#cta" class="hover:underline">Booking</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold">Kontak</h4>
+          <ul class="mt-3 space-y-2 text-sm text-white/80">
+            <li>Email: alfachri1945@gmail.com</li>
+            <li>IG: @_msri.art</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-6 border-t border-white/10 pt-4 text-center text-xs text-white/60">
+        © <span id="year"></span> Ƒ Α Н Я Ι. Powered By <a href="https://www.instagram.com/tsukihi__?igsh=aXBjemx5MWpjNWRo&utm_source=qr">Tsukihi</a>. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    // Toggle mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Gallery loading overlays
+    const galleryImages = document.querySelectorAll('[data-gallery-img]');
+    galleryImages.forEach((img) => {
+      const container = img.closest('.gallery-item');
+      const overlay = container?.querySelector('.gallery-overlay');
+
+      const showImage = () => {
+        container?.classList.add('loaded');
+      };
+
+      const showError = () => {
+        if (!overlay) return;
+        overlay.classList.remove('bg-white/5');
+        overlay.classList.add('bg-red-900/40');
+        overlay.innerHTML = '<span class="text-xs font-semibold text-white/80">Gagal memuat foto</span>';
+      };
+
+      if (img.complete) {
+        if (img.naturalWidth > 0) {
+          showImage();
+        } else {
+          showError();
+        }
+        return;
+      }
+
+      img.addEventListener('load', showImage, { once: true });
+      img.addEventListener('error', showError, { once: true });
+    });
+  </script>
+</body>
+</html>
